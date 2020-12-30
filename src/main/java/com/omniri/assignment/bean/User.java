@@ -8,8 +8,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+
 @Entity
-public class User implements Serializable{
+public class User    implements Serializable{
     @Id
 	@Column(name="userid")
 	private String id;

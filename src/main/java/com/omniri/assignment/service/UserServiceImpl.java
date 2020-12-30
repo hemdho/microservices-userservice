@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService{
 	public User create(User user) {
 		user.setEnabled(true);
 		if(Objects.isNull(user.getId())){
-			user.setId(UUID.randomUUID().toString());
+			user.setId(user.getUsername());
 		}
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		return userRepo.save(user);
