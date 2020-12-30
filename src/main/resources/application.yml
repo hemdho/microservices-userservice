@@ -1,0 +1,45 @@
+server:
+  port: 8098    #default port where the service will be started
+ 
+eureka:         #tells about the Eureka server details and its refresh time
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+    
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+   
+spring:     
+  application:
+    name: user-service   #current service name to be used by the eureka server
+  datasource:
+      url: jdbc:h2:mem:testdb
+      driverClassName: org.h2.Driver
+      username: sa
+      password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    
+management:
+  server:
+    servlet:      context-path: /admin
+
+   
+     
+ 
+logging:
+  level:
+     com.omniri.assignment: info
+     org.springframework.security: debug
+     org.springframework: info
+     
+hemkoder:
+     app:
+       jwtSecret: hemantSecretKey
+       jwtExpirationMs: 900000
+ 
